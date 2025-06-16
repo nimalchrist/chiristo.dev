@@ -2,3 +2,25 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  --color-heading: #000000;
+  --color-description: #222222;
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+.dark {
+  --color-heading: #ffffff;
+  --color-description: #ffffff;
+  --bg: #0f0f0f;
+  --text: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
