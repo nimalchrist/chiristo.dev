@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Hello Home Works</h1>;
+  return (
+    <main>
+      <h1>Hello, Next.js with SCSS Themes!</h1>
+    </main>
+  );
 }
