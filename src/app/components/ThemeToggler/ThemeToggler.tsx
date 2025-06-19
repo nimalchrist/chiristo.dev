@@ -15,8 +15,10 @@ export default function ThemeToggler() {
   if (!mounted) return null;
 
   return (
-    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-      Switch to {theme === 'dark' ? 'light' : 'dark'} mode
-    </button>
+    <div>
+      <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+        Switch to {theme === 'dark' ? 'light' : 'dark'} mode
+      </button>
+    </div>
   );
 }

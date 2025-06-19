@@ -1,0 +1,11 @@
+@use '../../styles/typography' as *;
+
+.navbar {
+  border: 1px solid red;
+  a {
+    border: 1px dashed var(--text);
+    padding-right: 30px;
+    text-decoration: none;
+    @include navlinks-text;
+  }
+}

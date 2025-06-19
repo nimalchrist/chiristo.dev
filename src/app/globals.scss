@@ -18,9 +18,14 @@
 }
 
 body {
+  margin: 0px auto;
   background-color: var(--bg);
   color: var(--text);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+  width: 70%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }

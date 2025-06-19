@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'next-themes';
 import './globals.scss';
 import { jetbrains, lexend, mynerve } from './styles/font';
+import HeaderSection from './sections/HeaderSection/HeaderSection';
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
           enableSystem
           storageKey="theme"
         >
+          <HeaderSection />
           {children}
         </ThemeProvider>
       </body>
