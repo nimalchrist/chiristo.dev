@@ -8,6 +8,7 @@
   --color-description: #222222;
   --bg: #ffffff;
   --text: #000000;
+  --icon-color: 34, 34, 34;
 }
 
 .dark {
@@ -15,12 +16,18 @@
   --color-description: #ffffff;
   --bg: #0f0f0f;
   --text: #ffffff;
+  --icon-color: 255, 255, 255;
 }
 
 body {
+  margin: 0px auto;
   background-color: var(--bg);
   color: var(--text);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+  width: 70%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
