@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'next-themes';
 import './globals.scss';
-import { jetbrains, lexend, mynerve } from './styles/font';
+import { jetbrains, lexend, mynerve } from '../styles/font';
 
 export default function RootLayout({
   children,
