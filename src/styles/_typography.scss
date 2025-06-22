@@ -26,18 +26,18 @@
 @mixin side-heading {
   font-family: var(--font-mynerve);
   font-weight: 500;
-  color: #636363;
+  color: var(--side-heading);
   font-size: 32px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 }
 
 // heading
 @mixin primary-heading {
   font-family: var(--font-lexend);
-  font-weight: bold;
+  font-weight: 400;
   color: var(--color-heading);
   font-size: 24px;
 

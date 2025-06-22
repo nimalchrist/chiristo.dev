@@ -9,14 +9,16 @@
   --bg: #ffffff;
   --text: #000000;
   --icon-color: 34, 34, 34;
+  --side-heading: #636363;
 }
 
 .dark {
   --color-heading: #ffffff;
-  --color-description: #ffffff;
+  --color-description: #dcdcdc;
   --bg: #0f0f0f;
   --text: #ffffff;
   --icon-color: 255, 255, 255;
+  --side-heading: #cccccc;
 }
 
 body {
