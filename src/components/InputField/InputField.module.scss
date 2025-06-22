@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+.label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: var(--font-jetbrains);
+}
+.inputBox {
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  font-family: var(--font-jetbrains);
+  outline: none;
+}
