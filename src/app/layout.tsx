@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      className="system"
       suppressHydrationWarning
     >
       <body className={`${mynerve.variable} ${lexend.variable} ${jetbrains.variable}`}>

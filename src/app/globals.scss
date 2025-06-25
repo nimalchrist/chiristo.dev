@@ -1,24 +1,24 @@
+@use "../styles/variables" as *;
+
 * {
   padding: 0;
   margin: 0;
 }
 
 :root {
-  --color-heading: #000000;
-  --color-description: #222222;
-  --bg: #ffffff;
-  --text: #000000;
-  --icon-color: 34, 34, 34;
-  --side-heading: #636363;
+  --color-heading: #{$color-heading-light};
+  --color-description: #{$color-description-light};
+  --bg: #{$bg-light};
+  --text: #{$text-light};
+  --side-heading: #{$side-heading-light};
 }
 
 .dark {
-  --color-heading: #ffffff;
-  --color-description: #dcdcdc;
-  --bg: #0f0f0f;
-  --text: #ffffff;
-  --icon-color: 255, 255, 255;
-  --side-heading: #cccccc;
+  --color-heading: #{$color-heading-dark};
+  --color-description: #{$color-description-dark};
+  --bg: #{$bg-dark};
+  --text: #{$text-dark};
+  --side-heading: #{$side-heading-dark};
 }
 
 body {
@@ -29,6 +29,7 @@ body {
     background-color 0.3s ease,
     color 0.3s ease;
   width: 70%;
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
