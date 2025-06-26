@@ -119,6 +119,7 @@ export function getProfileSummaryDetails() {
   return {
     name: 'Chiristo Nimal',
     role: 'Software Engineer',
-    summary: "I'm a code nerd with obsessive indentation standards. I debug for fun, refactor for beauty, and philosophize over Marvel timelines. Ping me at chiristo.dev@gmail.com. Let's talk clean code or chaos.",
+    summary:
+      "I'm a code nerd with obsessive indentation standards. I debug for fun, refactor for beauty, and philosophize over Marvel timelines. Ping me at chiristo.dev@gmail.com. Let's talk clean code or chaos.",
   };
 }

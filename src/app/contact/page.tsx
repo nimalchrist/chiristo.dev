@@ -4,7 +4,7 @@ import styles from './contact.module.scss';
 
 export default function ContactPage() {
   return (
-    <section className={styles.contactPage}>
+    <div className={styles.contactPage}>
       <h1>Contact Page</h1>
       <h3>If you have any questions, feel free to reach out!</h3>
       <motion.div
@@ -19,6 +19,6 @@ export default function ContactPage() {
       >
         <ContactForm />
       </motion.div>
-    </section>
+    </div>
   );
 }

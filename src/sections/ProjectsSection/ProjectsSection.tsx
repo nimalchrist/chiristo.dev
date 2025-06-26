@@ -26,7 +26,11 @@ export default function ProjectsSection() {
               className={styles.projectName}
               whileHover={hoverVariants}
             >
-              <a href={project.link}>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {project.name} <ReferIcon />
               </a>{' '}
             </motion.h3>
