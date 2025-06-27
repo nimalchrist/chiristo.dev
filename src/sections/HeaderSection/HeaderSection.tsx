@@ -1,4 +1,4 @@
-import Navbar from "@/app/components/NavBar/Navbar";
+import Navbar from "@/components/NavBar/Navbar";
 import ThemeToggler from "@/app/components/ThemeToggler/ThemeToggler";
 import style from "./HeaderSection.module.scss";
 
