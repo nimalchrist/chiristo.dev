@@ -78,20 +78,20 @@ const educationArray = [
 
 const projectsArray = [
   {
-    name: 'Portfolio page along with blog',
+    name: 'Portfolio page along with blogs',
     completionDate: 'Ongoing',
     description:
-      'A personal portfolio page built with Next.js, scss and firebase. It showcases my projects, skills, and blog posts.',
+      'A personal portfolio website built using Next.js, SCSS, and Firebase. It highlights my projects, technical skills, and features a blog section for sharing insights and learnings.',
     link: '', //TODO: Add link when deployed
-    skillsUsed: 'React, Node.js, Socket.io',
+    skillsUsed: '',
   },
   {
     name: 'Secured Chatroom',
     completionDate: 'Aug 2024',
     description:
-      'A secured chat application built with React and Node.js. It features user authentication and real-time messaging. Frontend built with React, contextAPI and backend with Node.js and Socket.io. Database is MongoDB and Redis is used for caching.',
+      'A secure chat application built with React and Node.js. It features user authentication and real-time messaging. The frontend is built with React and Context API, while the backend uses Node.js and Socket.IO. MongoDB is used as the database, and Redis is used for caching.',
     link: 'https://github.com/nimalchrist/Chat_App_Ui.git',
-    skillsUsed: 'React, Node.js, MongoDB, Socket.io, Redis, Docker',
+    skillsUsed: '',
   },
   {
     name: 'Room Relish UI',
@@ -99,7 +99,7 @@ const projectsArray = [
     description:
       'A modern and responsive UI for a room booking application, built with Reactjs, Material UI and contextAPI.',
     link: 'https://github.com/nimalchrist/room_relish_ui.git',
-    skillsUsed: 'React, Material UI and Context API',
+    skillsUsed: '',
   },
 ];
 
