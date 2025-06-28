@@ -1,0 +1,34 @@
+@use '../../styles/typography' as *;
+@use '../../styles//variables' as *;
+
+.navbar {
+  a {
+    padding-right: 30px;
+    text-decoration: none;
+    @include navlinks-text;
+
+    &:hover {
+      color: $secondaryColor;
+    }
+
+    &.active {
+      color: $primaryColor;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    // TODO: Add styles for tablet screens
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+
+    a {
+      margin: 15px 0px;
+      padding-right: 0px;
+    }
+  }
+}

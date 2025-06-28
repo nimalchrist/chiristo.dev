@@ -6,11 +6,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 60px auto 60px auto;
+  margin: 50px auto 60px auto;
 
   h1 {
     font-family: var(--font-mynerve);
     padding: 20px;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin: 20px auto;
+
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 20px auto;
+
+    h1 {
+      font-size: 24px;
+    }
   }
 }
 
@@ -58,8 +76,17 @@
       margin-left: 10px;
     }
 
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+      padding: 0px 0px 0px 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+
     @media screen and (max-width: 768px) {
-      width: 85%;
+      width: 90%;
       padding: 0px 0px 0px 10px;
 
       h3 {
@@ -113,8 +140,17 @@
       margin-left: 10px;
     }
 
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+      padding: 0px 0px 0px 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+
     @media screen and (max-width: 768px) {
-      width: 85%;
+      width: 90%;
       padding: 0px 0px 0px 10px;
 
       h3 {

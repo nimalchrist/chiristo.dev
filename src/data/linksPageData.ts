@@ -1,12 +1,7 @@
 import GithubIcon from '../assets/social-icons/github.svg';
 import LinkedInIcon from '../assets/social-icons/linkedin.svg';
 import MailToIcon from '../assets/social-icons/mailto.svg';
-import {
-  githubUrl,
-  linkedInUrl,
-  mailUrl,
-  twitterUrl as xUrl,
-} from '../utils/linksPageUtils/authorsUrls';
+import { githubUrl, linkedInUrl, mailUrl, twitterUrl as xUrl } from '../utils/authorsUrls';
 import XIcon from '../assets/social-icons/twitter.svg';
 
 const linksArray = [
