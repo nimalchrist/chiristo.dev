@@ -1,0 +1,35 @@
+@use '../../../styles/variables' as *;
+
+.linkButton {
+  font-family: var(--font-jetbrains);
+  font-weight: bold;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 3px;
+  align-self: center;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.primary {
+  background-color: $primaryColor;
+  color: var(--text);
+
+  &:hover {
+    background-color: transparent;
+    outline: 2px solid $primaryColor;
+  }
+}
+
+.secondary {
+  outline: 2px solid $primaryColor;
+  background-color: var(--bg);
+  color: var(--text);
+
+  &:hover {
+    background-color: var(--text);
+    color: var(--bg);
+    outline: none;
+  }
+}

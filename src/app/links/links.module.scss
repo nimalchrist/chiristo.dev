@@ -19,6 +19,14 @@
     margin: 20px auto;
 
     h1 {
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 20px auto;
+
+    h1 {
       font-size: 24px;
     }
   }
@@ -66,6 +74,15 @@
       font-weight: 300;
       color: var(--text);
       margin-left: 10px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+      padding: 0px 0px 0px 10px;
+
+      h3 {
+        font-size: 16px;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -121,6 +138,15 @@
       font-weight: 300;
       color: var(--text);
       margin-left: 10px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+      padding: 0px 0px 0px 10px;
+
+      h3 {
+        font-size: 16px;
+      }
     }
 
     @media screen and (max-width: 768px) {

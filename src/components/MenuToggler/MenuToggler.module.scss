@@ -1,0 +1,31 @@
+.fab {
+  position: fixed;
+  top: 15px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: none; // hidden by default
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2000;
+  background-color: var(--bg);
+  outline: none;
+  border: none;
+  box-shadow: color-mix(in srgb, var(--text) 20%, transparent) 0px 2px 8px 0px;
+
+  @media screen and (max-width: 1024) {
+    // TODO: need to adjust for the tablet screens
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex; // show on mobile
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--text) !important;
+  }
+}
