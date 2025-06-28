@@ -1,14 +1,14 @@
-import { LinkButtonProps } from './types';
 import styles from './LinkButton.module.scss';
+import { LinkButtonProps } from './types';
+
 
 export default function LinkButton({ variant = 'primary', ...props }: LinkButtonProps) {
   return (
-    <span>
-      {/* TODO: add dynamic icon */}
+    <span className={`${styles.linkButton} ${styles[variant]}`}>
       <a
         {...props}
-        className={`${styles.linkButton} ${styles[variant]}`}
         href={props.href}
+        className={styles.link}
         target="_blank"
         rel={props.rel || 'noopener noreferrer'}
       >

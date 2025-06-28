@@ -1,11 +1,12 @@
 'use client';
-import LinkButton from '@/components/Buttons/LinkButton/LinkButton';
+import LinkIconButton from '@/components/Buttons/LinkIconButton/LinkIconButton';
 import MenuToggler from '@/components/MenuToggler/MenuToggler';
 import Navbar from '@/components/NavBar/Navbar';
 import ThemeToggler from '@/components/ThemeToggler/ThemeToggler';
+import { mailUrl } from '@/utils/authorsUrls';
+import MailIcon from "../../assets/social-icons/mailto.svg";
 import useMobileHeader from '../../hooks/useMobileHeader';
 import styles from './HeaderSection.module.scss';
-import { mailUrl } from '@/utils/authorsUrls';
 
 export default function HeaderSection() {
   const { isOpen, toggleMenu, closeOnItemClick } = useMobileHeader();
@@ -22,12 +23,13 @@ export default function HeaderSection() {
         <Navbar />
         <div className={styles.headerUtils}>
           <ThemeToggler />
-          <LinkButton
+          <LinkIconButton
+            icon={<MailIcon />}
             href={mailUrl}
             variant="secondary"
           >
             Mail
-          </LinkButton>
+          </LinkIconButton>
         </div>
       </section>
     </>
