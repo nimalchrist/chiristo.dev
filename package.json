@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format:check": "prettier --check src",
-    "format:apply": "prettier --write src"
+    "format:apply": "prettier --write src",
+    "export:dev": "firebase use default && next build && next export && firebase deploy",
+    "export:prod": "firebase use prod && next build && next export && firebase deploy"
   },
   "dependencies": {
     "firebase": "^11.9.1",
