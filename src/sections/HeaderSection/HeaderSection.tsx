@@ -4,7 +4,7 @@ import MenuToggler from '@/components/MenuToggler/MenuToggler';
 import Navbar from '@/components/NavBar/Navbar';
 import ThemeToggler from '@/components/ThemeToggler/ThemeToggler';
 import { mailUrl } from '@/utils/authorsUrls';
-import MailIcon from "../../assets/social-icons/mailto.svg";
+import MailIcon from '../../assets/social-icons/mailto.svg';
 import useMobileHeader from '../../hooks/useMobileHeader';
 import styles from './HeaderSection.module.scss';
 

@@ -1,7 +1,6 @@
 import styles from './LinkButton.module.scss';
 import { LinkButtonProps } from './types';
 
-
 export default function LinkButton({ variant = 'primary', ...props }: LinkButtonProps) {
   return (
     <span className={`${styles.linkButton} ${styles[variant]}`}>

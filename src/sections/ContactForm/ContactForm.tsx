@@ -21,22 +21,15 @@ export default function ContactForm() {
     e.preventDefault();
     startLoading();
     try {
-      console.log('Form submitted:', values);
       const safeData = JSON.parse(JSON.stringify(values));
-      const contactService = new ContactService()
-      const docId = await contactService.submitContactData(safeData)
-      console.log('Document written with ID:', docId);
-      // add the firebase firestore service responsible for saving the form data
-      // await someFirebaseApiCall();
-      // For example:
-      // const db = getFirestore();
-      // const docRef = await addDoc(collection(db, 'contactForms'), formValues);
-      // console.log('Document written with ID: ', docRef.id);
+      const contactService = new ContactService();
+      await contactService.submitContactData(safeData);
       toast.success('Form submitted successfully!');
       finishLoading();
-    } catch(err) {
-      console.error('Error submitting contact form:', err);
-      failedWith('Unexpected error');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'An unexpected error occurred');
+      failedWith(err instanceof Error ? err.message : 'An unexpected error occurred');
+      finishLoading();
     }
     resetValues();
   };
