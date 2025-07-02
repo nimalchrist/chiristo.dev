@@ -1,4 +1,5 @@
-import * as motion from 'motion/react-client';
+'use client';
+import { motion } from "framer-motion";
 import {
   containerVariants,
   itemVariants,

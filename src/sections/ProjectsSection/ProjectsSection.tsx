@@ -1,6 +1,7 @@
+'use client';
 import { getProjectsArrayData } from '@/data/homePageData';
 import { childVariants, containerVariants, hoverVariants } from '@/utils/homePageUtils/animation';
-import * as motion from 'motion/react-client';
+import { motion } from 'framer-motion';
 import ReferIcon from '../../assets/general-icons/external-link.svg';
 import styles from './ProjectsSection.module.scss';
 

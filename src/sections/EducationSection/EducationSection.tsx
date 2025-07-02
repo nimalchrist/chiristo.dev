@@ -1,6 +1,7 @@
+'use client';
 import { getEducationArrayData } from '@/data/homePageData';
 import { childVariants, containerVariants } from '@/utils/homePageUtils/animation';
-import * as motion from 'motion/react-client';
+import { motion } from 'framer-motion';
 import styles from './EducationSection.module.scss';
 
 export default function EducationSection() {
