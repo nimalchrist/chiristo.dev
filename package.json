@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "release": "sh ./scripts/release.sh",
     "dev": "env-cmd -f .env.dev next dev --turbopack -p 3010",
     "build": "next build",
     "start": "next start",
@@ -36,6 +37,7 @@
     "prettier": "^3.5.3",
     "sass": "^1.89.2",
     "scss": "^0.2.4",
+    "standard-version": "^9.5.0",
     "typescript": "^5",
     "webpack": "^5.99.9"
   }
