@@ -1,4 +1,36 @@
+@use '../styles/variables' as *;
+
 * {
   padding: 0;
   margin: 0;
+}
+
+:root {
+  --color-heading: #{$color-heading-light};
+  --color-description: #{$color-description-light};
+  --bg: #{$bg-light};
+  --text: #{$text-light};
+  --side-heading: #{$side-heading-light};
+}
+
+.dark {
+  --color-heading: #{$color-heading-dark};
+  --color-description: #{$color-description-dark};
+  --bg: #{$bg-dark};
+  --text: #{$text-dark};
+  --side-heading: #{$side-heading-dark};
+}
+
+body {
+  margin: 0px auto;
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  width: 70%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }

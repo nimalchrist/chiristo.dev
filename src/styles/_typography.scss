@@ -1,0 +1,72 @@
+// name
+@mixin hero-title {
+  font-family: var(--font-jetbrains);
+  font-size: 60px;
+  font-weight: 400;
+  color: var(--color-heading);
+
+  @media (max-width: 768px) {
+    font-size: 24px; // TODO: need to make it more responsive
+  }
+}
+
+// name summary
+@mixin hero-summary {
+  font-family: var(--font-lexend);
+  font-weight: 300;
+  color: var(--color-heading);
+  font-size: 22px;
+  word-spacing: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+// side heading
+@mixin side-heading {
+  font-family: var(--font-mynerve);
+  font-weight: 500;
+  color: var(--side-heading);
+  font-size: 32px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+// heading
+@mixin primary-heading {
+  font-family: var(--font-lexend);
+  font-weight: 400;
+  color: var(--color-heading);
+  font-size: 22px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+//   description text
+@mixin description-text {
+  font-family: var(--font-lexend);
+  font-weight: 200;
+  font-size: 20px;
+  color: var(--color-description);
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+// navlinks typography
+@mixin navlinks-text {
+  font-family: var(--font-lexend);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color-description);
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}

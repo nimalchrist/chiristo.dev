@@ -1,0 +1,34 @@
+.toggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  /* stack icons */
+  padding: 0;
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, rgba(59, 130, 246, 0.5));
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* hidden by default */
+  transition: opacity 0.1s ease;
+  /* fade in/out */
+  pointer-events: none;
+  /* clicks pass through to button */
+}
+
+.visible {
+  opacity: 1;
+}

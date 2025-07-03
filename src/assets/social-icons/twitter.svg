@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- X.com icon (filled paths using currentColor, suitable for dark/light mode) -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 3H8.94L12.83 9.53L17.67 3H21.86L15.29 11.52L22 21H16.06L11.77 14.68L6.45 21H2.27L9.31 12.87L3 3ZM16.12 19H17.38L8.07 4.91H6.73L16.12 19Z" fill="currentColor"/>
+</svg>

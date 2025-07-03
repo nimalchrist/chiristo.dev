@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "chiristo-blogs-dev",
+    "prod": "chiristo-blogs"
+  },
+  "targets": {},
+  "etags": {}
+}
