@@ -1,0 +1,31 @@
+@use '../../../styles//variables' as *;
+@use 'sass:color';
+
+.baseButton {
+  padding: 10px 30px;
+  border: none;
+  font-weight: bold;
+  font-family: var(--font-jetbrains);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s;
+  max-width: 200px;
+  align-self: center;
+
+  &:disabled {
+    background-color: color.adjust($primaryColor, $lightness: 30%);
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background-color: $primaryColor;
+  color: var(--text);
+}
+
+.secondary {
+  background-color: var(--bg);
+  color: $primaryColor;
+  outline: 1px solid var(--text);
+}
