@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# chiristo.dev
 
-## Getting Started
+🚀 **chiristo.dev** is my personal developer portfolio and tech blog, built to showcase my work, write about what I learn, and experiment with modern web technologies.
 
-First, run the development server:
+## 🧪 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework**: [Next.js (App Router)](https://nextjs.org/)
+- **Styling**: SCSS, Styled Components
+- **Animations**: Framer Motion
+- **Theming**: `next-themes` for dark/light mode
+- **Backend**: Firebase (Firestore, Hosting, Authentication)
+- **CI/CD**: GitHub Actions with Firebase Hosting Preview
+- **CMS**: Custom admin panel (Next.js authenticated route) *(WIP)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Folder Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```python
+chiristo.dev/
+├── public/                 # Static assets
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   ├── components/         # Reusable components
+│   ├── hooks/              # Custom hooks
+│   ├── services/           # Firebase, API utilities
+│   ├── styles/             # Global and modular styles
+│   └── utils/              # Helper utilities
+├── .github/                # GitHub Actions workflows
+└── README.md
+````
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* ✅ Dark/light mode toggle
+* ✅ Fully responsive layout
+* ✅ Portfolio sections: About, Skills, Projects, Contact
+* 📝 Blog system with Firestore or MDX (planned)
+* 🔐 Authenticated admin panel for post management (WIP)
+* 🧪 PR preview with Firebase Hosting via GitHub Actions
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Roadmap
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* [x] Portfolio UI (Homepage, Sections)
+* [x] Firebase setup for hosting
+* [ ] Blog with markdown or Firestore
+* [ ] Admin panel for post creation
+* [ ] Email contact form
+* [ ] Lighthouse performance tuning
+
+---
+
+## 👨‍💻 About Me
+
+I'm **Chiristo**, a MERN Stack developer at Comcast (CIEC, Chennai) working on conversational AI (Bot Framework SDK, Direct Line, Azure). I build side projects to explore full-stack architectures and love writing about tech.
+
+---
+
+## 📝 License
+
+MIT © 2025 Chiristo
+Feel free to fork, use, and modify with attribution.
