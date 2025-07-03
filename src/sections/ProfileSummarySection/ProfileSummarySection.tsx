@@ -1,8 +1,9 @@
+'use client';
 import { getProfileSummaryDetails } from '@/data/homePageData';
 import getEmailRegex from '@/utils/homePageUtils/getEmailRegex';
 import Image from 'next/image';
 import styles from './ProfileSummarySection.module.scss';
-import * as motion from 'motion/react-client';
+import { motion } from 'framer-motion';
 import {
   normalFadeInAnimation,
   profileNameContainerVariants,

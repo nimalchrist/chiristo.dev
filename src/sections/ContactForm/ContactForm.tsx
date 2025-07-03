@@ -7,6 +7,7 @@ import useLoadingError from '@/hooks/useLoadingError';
 import { ContactFormData } from '@/sections/ContactForm/types';
 import styles from './ContactForm.module.scss';
 import toast from 'react-hot-toast';
+import { ContactService } from '@/services/modules/contact';
 
 export default function ContactForm() {
   const { values, handleChange, resetValues } = useFormState<ContactFormData>({
@@ -16,21 +17,19 @@ export default function ContactForm() {
   });
   const { loading, startLoading, failedWith, finishLoading } = useLoadingError();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     startLoading();
     try {
-      console.log('Form submitted:', values);
-      // add the firebase firestore service responsible for saving the form data
-      // await someFirebaseApiCall();
-      // For example:
-      // const db = getFirestore();
-      // const docRef = await addDoc(collection(db, 'contactForms'), formValues);
-      // console.log('Document written with ID: ', docRef.id);
+      const safeData = JSON.parse(JSON.stringify(values));
+      const contactService = new ContactService();
+      await contactService.submitContactData(safeData);
       toast.success('Form submitted successfully!');
       finishLoading();
-    } catch {
-      failedWith('Unexpected error');
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'An unexpected error occurred');
+      failedWith(err instanceof Error ? err.message : 'An unexpected error occurred');
+      finishLoading();
     }
     resetValues();
   };

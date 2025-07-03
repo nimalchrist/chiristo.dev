@@ -1,6 +1,7 @@
+'use client';
 import { getSkillsArrayData } from '@/data/homePageData';
 import { childVariants, containerVariants, hoverVariants } from '@/utils/homePageUtils/animation';
-import * as motion from 'motion/react-client';
+import { motion } from 'framer-motion';
 import styles from './SkillsSection.module.scss';
 
 export default function SkillsSection() {

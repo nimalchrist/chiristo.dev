@@ -9,6 +9,12 @@ export default function Layout({
     <section>
       {children}
       <Toaster
+        toastOptions={{
+          style: {
+            fontFamily: 'var(--font-lexend), sans-serif',
+            fontSize: '1rem',
+          },
+        }}
         position="bottom-center"
         reverseOrder={false}
       />

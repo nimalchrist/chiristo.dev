@@ -1,5 +1,6 @@
+'use client';
 import ContactForm from '@/sections/ContactForm/ContactForm';
-import * as motion from 'motion/react-client';
+import { motion } from 'framer-motion';
 import styles from './contact.module.scss';
 
 export default function ContactPage() {
