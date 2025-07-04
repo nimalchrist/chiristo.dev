@@ -1,1 +1,1 @@
-// TODO: add the promoted urls here
+export const dailyDevUrl = 'https://app.daily.dev/christonimal13';
