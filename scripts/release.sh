@@ -3,6 +3,7 @@
 # This script automates the process of creating a new release branch,
 # updating the package.json version, committing the changes, and tagging the release.
 # It relies on 'what-bump' for version calculation based on conventional commits.
+# Usage: ./scripts/release.sh
 
 set -e # Exit immediately if a command exits with a non-zero status
 
