@@ -41,7 +41,7 @@ fi
 
 # Step 4: Run what-bump to get new version
 echo "🔍 Running what-bump..."
-NEW_VERSION=$(what-bump --from "$PREV_COMMIT")
+NEW_VERSION=$(what-bump HEAD --from "$PREV_COMMIT")
 
 if [[ -z "$NEW_VERSION" ]]; then
   echo "❌ Failed to determine next version using what-bump."
