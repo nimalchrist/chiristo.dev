@@ -2,6 +2,12 @@
 
 set -e
 
+# Step 0: Ensure clean working directory
+if [[ -n $(git status --porcelain) ]]; then
+  echo "❌ Working directory not clean. Please commit or stash your changes before releasing."
+  exit 1
+fi
+
 # Step 1: Find last release commit (based on commit message)
 PREV_COMMIT=$(git log --grep='^chore(release):' --pretty=format:'%H' | head -n 1)
 
@@ -25,8 +31,17 @@ if ! command -v what-bump &>/dev/null; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# Step 3: Run what-bump with proper flags
-NEW_VERSION=$(what-bump --from "$PREV_COMMIT" 2>/dev/null)
+# Step 3: Check if there are commits after the last release
+AFTER_RELEASE=$(git log "$PREV_COMMIT"..HEAD --oneline)
+
+if [[ -z "$AFTER_RELEASE" ]]; then
+  echo "❌ No new commits after the last release. Nothing to bump."
+  exit 1
+fi
+
+# Step 4: Run what-bump to get new version
+echo "🔍 Running what-bump..."
+NEW_VERSION=$(what-bump --from "$PREV_COMMIT")
 
 if [[ -z "$NEW_VERSION" ]]; then
   echo "❌ Failed to determine next version using what-bump."
@@ -35,7 +50,7 @@ fi
 
 echo "📦 New release version: $NEW_VERSION"
 
-# Step 4: Update package.json
+# Step 5: Update package.json
 echo "🛠️  Updating package.json..."
 python3 - <<EOF
 import json
@@ -46,11 +61,11 @@ with open("package.json", "w") as f:
     json.dump(data, f, indent=4)
 EOF
 
-# Step 5: Commit version bump
+# Step 6: Commit version bump
 git add package.json
 git commit -m "chore(release): ${NEW_VERSION}"
 
-# Step 6: Create local branch
+# Step 7: Create local branch
 BRANCH_NAME="release/${NEW_VERSION}"
 git checkout -b "$BRANCH_NAME"
 
