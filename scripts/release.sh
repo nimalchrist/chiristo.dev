@@ -41,12 +41,13 @@ echo "✅ 'what-bump' is available."
 
 # --- Step 3: Calculate new version ---
 echo "Calculating new version based on commits since $PREV..."
-NEW=$(what-bump "$PREV" --from "$PREV")
+# The fix is here: remove the redundant --from argument
+NEW=$(what-bump "$PREV") 
 
 if [[ -z "$NEW" ]]; then
   echo "❌ Failed to determine a new version from 'what-bump'."
   echo "This usually means there are no conventional commits (feat:, fix:, chore:, etc.)"
-  echo "or no breaking changes since the last tag."
+  echo "or no breaking changes since the last tag. Please add some meaningful commits."
   exit 1
 fi
 
