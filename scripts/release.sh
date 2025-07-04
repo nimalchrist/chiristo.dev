@@ -41,14 +41,36 @@ echo "✅ 'what-bump' is available."
 
 # --- Step 3: Calculate new version ---
 echo "Calculating new version based on commits since $PREV..."
-# The fix is here: remove the redundant --from argument
-NEW=$(what-bump "$PREV") 
+BUMP_RESULT=$(what-bump "$PREV") # Capture the raw output from what-bump
 
-if [[ -z "$NEW" ]]; then
-  echo "❌ Failed to determine a new version from 'what-bump'."
-  echo "This usually means there are no conventional commits (feat:, fix:, chore:, etc.)"
-  echo "or no breaking changes since the last tag. Please add some meaningful commits."
-  exit 1
+# Remove 'v' prefix from PREV for numeric parsing
+PREV_VERSION_NUMERIC=$(echo "$PREV" | sed 's/^v//')
+
+# Function to increment patch version
+increment_patch() {
+    local version="$1"
+    # Split major, minor, patch
+    IFS='.' read -r major minor patch <<< "$version"
+    # Increment patch
+    patch=$((patch + 1))
+    echo "${major}.${minor}.${patch}"
+}
+
+# Check if what-bump returned a valid version number
+if [[ "$BUMP_RESULT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    NEW="$BUMP_RESULT"
+    echo "📦 New version identified by what-bump: ${NEW}"
+elif [[ "$BUMP_RESULT" == "Patch" ]]; then
+    # If what-bump literally returned "Patch", we'll force a patch increment
+    NEW=$(increment_patch "$PREV_VERSION_NUMERIC")
+    echo "📦 'what-bump' suggested a patch bump. Forcing next patch version: ${NEW}"
+else
+    # Handle other unexpected outputs or no changes
+    echo "❌ Failed to determine a new version from 'what-bump'."
+    echo "what-bump output: '${BUMP_RESULT}'"
+    echo "This usually means there are no conventional commits (feat:, fix:, chore:, etc.)"
+    echo "or no breaking changes since the last tag. Please add some meaningful commits."
+    exit 1
 fi
 
 # Prepend 'v' if the new version doesn't already start with it, for consistent tagging.
@@ -58,7 +80,7 @@ else
     NEW_TAG="$NEW"
 fi
 
-echo "📦 New version identified: $NEW_TAG"
+echo "Final New version for tagging: $NEW_TAG"
 
 # --- Step 4: Update package.json ---
 echo "🛠️ Updating package.json to version '${NEW}'..."
