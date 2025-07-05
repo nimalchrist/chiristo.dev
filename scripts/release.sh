@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# This script automates the process of creating a new release branch,
-# updating the package.json version, committing the changes, and tagging the release.
-# It relies on 'what-bump' for version calculation based on conventional commits.
-
 set -e # Exit immediately if a command exits with a non-zero status
 
 echo "🚀 Starting release process..."
@@ -18,8 +14,8 @@ if [[ -n $(git status --porcelain) ]]; then
 fi
 echo "✅ Working directory is clean."
 
-# --- Step 1: Get previous version tag ---
-PREV=$(git describe --tags --abbrev=0)
+# --- Step 1: Get previous version tag (use highest semver tag, not latest reachable) ---
+PREV=$(git tag --sort=-v:refname | grep '^v' | head -n 1)
 
 if [[ -z "$PREV" ]]; then
   echo "❌ No previous tag found."
@@ -49,23 +45,19 @@ PREV_VERSION_NUMERIC=$(echo "$PREV" | sed 's/^v//')
 # Function to increment patch version
 increment_patch() {
     local version="$1"
-    # Split major, minor, patch
     IFS='.' read -r major minor patch <<< "$version"
-    # Increment patch
     patch=$((patch + 1))
     echo "${major}.${minor}.${patch}"
 }
 
-# Check if what-bump returned a valid version number
+# Determine the new version
 if [[ "$BUMP_RESULT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     NEW="$BUMP_RESULT"
     echo "📦 New version identified by what-bump: ${NEW}"
 elif [[ "$BUMP_RESULT" == "Patch" ]]; then
-    # If what-bump literally returned "Patch", we'll force a patch increment
     NEW=$(increment_patch "$PREV_VERSION_NUMERIC")
     echo "📦 'what-bump' suggested a patch bump. Forcing next patch version: ${NEW}"
 else
-    # Handle other unexpected outputs or no changes
     echo "❌ Failed to determine a new version from 'what-bump'."
     echo "what-bump output: '${BUMP_RESULT}'"
     echo "This usually means there are no conventional commits (feat:, fix:, chore:, etc.)"
@@ -73,7 +65,7 @@ else
     exit 1
 fi
 
-# Prepend 'v' if the new version doesn't already start with it, for consistent tagging.
+# Prepend 'v' if necessary
 if [[ ! "$NEW" =~ ^v ]]; then
     NEW_TAG="v$NEW"
 else
@@ -98,7 +90,7 @@ except json.JSONDecodeError:
     print("Error: Invalid JSON in package.json.", file=sys.stderr)
     sys.exit(1)
 
-data['version'] = '${NEW}' # Use NEW here, as package.json usually doesn't have 'v' prefix
+data['version'] = '${NEW}'
 
 with open('package.json', 'w') as f:
     json.dump(data, f, indent=4)
@@ -117,7 +109,6 @@ echo "✅ Release branch '$BRANCH' created and version bump committed."
 # --- Step 6: Tag the release commit ---
 echo "🏷️ Tagging the commit with ${NEW_TAG}..."
 git tag -a "${NEW_TAG}" -m "Release version ${NEW_TAG}"
-
 echo "✅ Commit successfully tagged with ${NEW_TAG}."
 
 # --- Step 7: Push the release branch and tag ---
