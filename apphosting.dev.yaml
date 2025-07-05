@@ -1,15 +1,25 @@
 # apphosting.dev.yaml
 
+runConfig:
+  cpu: 0.25 # Lowest available CPU for lowest cost
+  memoryMiB: 256 # Minimum memory for dev apps
+  concurrency: 10 # Accept up to 10 requests per instance
+
 env:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     secret: dev_FIREBASE_API_KEY
+
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
     secret: dev_FIREBASE_AUTH_DOMAIN
+
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
     secret: dev_FIREBASE_PROJECT_ID
+
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
     secret: dev_FIREBASE_STORAGE_BUCKET
+
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
     secret: dev_FIREBASE_MESSAGING_SENDER_ID
+
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
     secret: dev_FIREBASE_APP_ID
