@@ -1,5 +1,13 @@
 # apphosting.production.yaml
 
+runConfig:
+  minInstances: 2
+  maxInstances: 100
+  concurrency: 100
+  cpu: 2
+  memoryMiB: 1024
+
+
 env:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     secret: prod_FIREBASE_API_KEY
