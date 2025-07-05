@@ -44,26 +44,45 @@ PREV_VERSION_NUMERIC=$(echo "$PREV" | sed 's/^v//')
 
 # Function to increment patch version
 increment_patch() {
-    local version="$1"
-    IFS='.' read -r major minor patch <<< "$version"
+    IFS='.' read -r major minor patch <<< "$1"
     patch=$((patch + 1))
     echo "${major}.${minor}.${patch}"
 }
 
+increment_minor() {
+    IFS='.' read -r major minor patch <<< "$1"
+    minor=$((minor + 1))
+    patch=0
+    echo "${major}.${minor}.${patch}"
+}
+
+increment_major() {
+    IFS='.' read -r major minor patch <<< "$1"
+    major=$((major + 1))
+    minor=0
+    patch=0
+    echo "${major}.${minor}.${patch}"
+}
 # Determine the new version
-if [[ "$BUMP_RESULT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    NEW="$BUMP_RESULT"
-    echo "📦 New version identified by what-bump: ${NEW}"
-elif [[ "$BUMP_RESULT" == "Patch" ]]; then
-    NEW=$(increment_patch "$PREV_VERSION_NUMERIC")
-    echo "📦 'what-bump' suggested a patch bump. Forcing next patch version: ${NEW}"
-else
-    echo "❌ Failed to determine a new version from 'what-bump'."
-    echo "what-bump output: '${BUMP_RESULT}'"
-    echo "This usually means there are no conventional commits (feat:, fix:, chore:, etc.)"
-    echo "or no breaking changes since the last tag. Please add some meaningful commits."
-    exit 1
-fi
+case "$BUMP_RESULT" in
+    Patch)
+        NEW_VERSION=$(increment_patch "$PREV_VERSION")
+        echo "📦 Version bump: Patch → $NEW_VERSION"
+        ;;
+    Minor)
+        NEW_VERSION=$(increment_minor "$PREV_VERSION")
+        echo "📦 Version bump: Minor → $NEW_VERSION"
+        ;;
+    Major)
+        NEW_VERSION=$(increment_major "$PREV_VERSION")
+        echo "📦 Version bump: Major → $NEW_VERSION"
+        ;;
+    *)
+        echo "❌ Failed to determine a valid version from 'what-bump'."
+        echo "Make sure you have proper conventional commits since the last tag."
+        exit 1
+        ;;
+esac
 
 # Prepend 'v' if necessary
 if [[ ! "$NEW" =~ ^v ]]; then
