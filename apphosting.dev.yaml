@@ -1,9 +1,11 @@
 # apphosting.dev.yaml
 
 runConfig:
-  cpu: 0.25 # Lowest available CPU for lowest cost
-  memoryMiB: 256 # Minimum memory for dev apps
-  concurrency: 10 # Accept up to 10 requests per instance
+  cpu: 1
+  memoryMiB: 256
+  concurrency: 5
+  minInstances: 0
+  maxInstances: 1
 
 env:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
