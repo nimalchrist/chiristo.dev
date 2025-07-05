@@ -1,6 +1,6 @@
 {
     "name": "chiristo.dev",
-    "version": "1.0.3",
+    "version": "",
     "private": true,
     "scripts": {
         "release": "sh ./scripts/release.sh",
